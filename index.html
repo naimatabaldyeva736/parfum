@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chanel №5 — Premium Perfume Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">Chanel <span>№5</span></div>
+
+    <nav>
+        <a href="#home">Башкы бет</a>
+        <a href="#catalog">Каталог</a>
+        <a href="#brands">Бренддер</a>
+        <a href="#consultant">Консультант</a>
+        <a href="#contact">Байланыш</a>
+    </nav>
+
+    <button class="cart-btn" onclick="openCart()">
+        🛍 Себет <span id="cartCount">0</span>
+    </button>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+        <p class="small-title">PREMIUM PERFUME BOUTIQUE</p>
+
+        <h1>
+            Өзүңүзгө ылайыктуу
+            <span>жыпар жытты</span>
+            тандаңыз
+        </h1>
+
+        <p>
+            Селектив, люкс жана массмаркет парфюмдар.
+            Оригиналдуу ароматтар жана профессионалдуу
+            онлайн консультация.
+        </p>
+
+        <a href="#catalog" class="main-btn">
+            Каталогду көрүү
+        </a>
+    </div>
+
+    <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=80"
+             alt="Luxury perfume">
+    </div>
+
+</section>
+
+
+<!-- CATEGORIES -->
+
+<section class="categories">
+
+    <h2>Парфюм категориялары</h2>
+    <p class="section-text">
+        Ар кандай табитке жана бюджетке ылайыктуу жыпар жыттар
+    </p>
+
+    <div class="category-grid">
+
+        <div class="category-card selective">
+            <div>
+                <h3>Селектив</h3>
+                <p>Өзгөчө жана эксклюзивдүү ароматтар</p>
+                <button onclick="filterProducts('selective')">
+                    Каталогду ачуу
+                </button>
+            </div>
+        </div>
+
+        <div class="category-card luxury">
+            <div>
+                <h3>Люкс</h3>
+                <p>Дүйнөгө белгилүү премиум бренддер</p>
+                <button onclick="filterProducts('luxury')">
+                    Каталогду ачуу
+                </button>
+            </div>
+        </div>
+
+        <div class="category-card mass">
+            <div>
+                <h3>Массмаркет</h3>
+                <p>Күнүмдүк колдонууга жеткиликтүү ароматтар</p>
+                <button onclick="filterProducts('mass')">
+                    Каталогду ачуу
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CATALOG -->
+
+<section class="catalog" id="catalog">
+
+    <div class="section-heading">
+        <div>
+            <p class="small-title">OUR COLLECTION</p>
+            <h2>Парфюмдар каталогу</h2>
+        </div>
+
+        <input
+            type="text"
+            id="search"
+            placeholder="Парфюм издөө..."
+            onkeyup="searchProducts()"
+        >
+    </div>
+
+
+    <div class="filter-buttons">
+        <button onclick="showAll()">Баары</button>
+        <button onclick="filterProducts('selective')">Селектив</button>
+        <button onclick="filterProducts('luxury')">Люкс</button>
+        <button onclick="filterProducts('mass')">Массмаркет</button>
+    </div>
+
+
+    <div class="product-grid" id="productGrid">
+
+        <!-- PRODUCT 1 -->
+
+        <div class="product-card" data-category="luxury" data-name="Chanel Coco Mademoiselle">
+
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=700&q=80">
+                <span class="badge">LUXURY</span>
+            </div>
+
+            <div class="product-info">
+                <p>CHANEL</p>
+                <h3>Coco Mademoiselle</h3>
+                <span class="size">100 ml</span>
+
+                <div class="product-bottom">
+                    <strong>18 500 сом</strong>
+                    <button onclick="addToCart('Chanel Coco Mademoiselle', 18500)">
+                        Сатып алуу
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+
+        <div class="product-card" data-category="luxury" data-name="Dior Sauvage">
+
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=700&q=80">
+                <span class="badge">LUXURY</span>
+            </div>
+
+            <div class="product-info">
+                <p>DIOR</p>
+                <h3>Sauvage</h3>
+                <span class="size">100 ml</span>
+
+                <div class="product-bottom">
+                    <strong>16 900 сом</strong>
+                    <button onclick="addToCart('Dior Sauvage', 16900)">
+                        Сатып алуу
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+
+        <div class="product-card" data-category="selective" data-name="Tom Ford Oud Wood">
+
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1619994403073-2e2d2f9f2c8b?auto=format&fit=crop&w=700&q=80">
+                <span class="badge selective-badge">SELECTIVE</span>
+            </div>
+
+            <div class="product-info">
+                <p>TOM FORD</p>
+                <h3>Oud Wood</h3>
+                <span class="size">50 ml</span>
+
+                <div class="product-bottom">
+                    <strong>29 500 сом</strong>
+                    <button onclick="addToCart('Tom Ford Oud Wood', 29500)">
+                        Сатып алуу
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+
+        <div class="product-card" data-category="selective" data-name="Byredo Blanche">
+
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?auto=format&fit=crop&w=700&q=80">
+                <span class="badge selective-badge">SELECTIVE</span>
+            </div>
+
+            <div class="product-info">
+                <p>BYREDO</p>
+                <h3>Blanche</h3>
+                <span class="size">50 ml</span>
+
+                <div class="product-bottom">
+                    <strong>27 000 сом</strong>
+                    <button onclick="addToCart('Byredo Blanche', 27000)">
+                        Сатып алуу
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 5 -->
+
+        <div class="product-card" data-category="mass" data-name="Versace Bright Crystal">
+
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1563170351-be82bc888aa4?auto=format&fit=crop&w=700&q=80">
+                <span class="badge mass-badge">MASSMARKET</span>
+            </div>
+
+            <div class="product-info">
+                <p>VERSACE</p>
+                <h3>Bright Crystal</h3>
+                <span class="size">90 ml</span>
+
+                <div class="product-bottom">
+                    <strong>8 900 сом</strong>
+                    <button onclick="addToCart('Versace Bright Crystal', 8900)">
+                        Сатып алуу
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- PRODUCT 6 -->
+
+        <div class="product-card" data-category="mass" data-name="Hugo Boss Bottled">
+
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?auto=format&fit=crop&w=700&q=80">
+                <span class="badge mass-badge">MASSMARKET</span>
+            </div>
+
+            <div class="product-info">
+                <p>HUGO BOSS</p>
+                <h3>Boss Bottled</h3>
+                <span class="size">100 ml</span>
+
+                <div class="product-bottom">
+                    <strong>9 500 сом</strong>
+                    <button onclick="addToCart('Hugo Boss Bottled', 9500)">
+                        Сатып алуу
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- BRANDS -->
+
+<section class="brands" id="brands">
+
+    <p class="small-title">TOP BRANDS</p>
+    <h2>Биздин бренддер</h2>
+
+    <div class="brand-grid">
+
+        <div class="brand">CHANEL</div>
+        <div class="brand">DIOR</div>
+        <div class="brand">TOM FORD</div>
+        <div class="brand">BYREDO</div>
+        <div class="brand">VERSACE</div>
+        <div class="brand">HUGO BOSS</div>
+
+    </div>
+
+</section>
+
+
+<!-- CONSULTANT -->
+
+<section class="consultant" id="consultant">
+
+    <div class="consultant-image">
+        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=80">
+    </div>
+
+    <div class="consultant-content">
+
+        <p class="small-title">ONLINE CONSULTANT</p>
+
+        <h2>Сизге аромат тандоого жардам беребиз</h2>
+
+        <p>
+            Кайсы аромат сизге туура келерин билбей жатасызбы?
+            Биздин онлайн продавец-консультант сизге парфюм
+            тандоого жардам берет.
+        </p>
+
+        <div class="online-status">
+            <span></span> Онлайн продавец-консультант
+        </div>
+
+        <a href="https://wa.me/996700000000"
+           target="_blank"
+           class="whatsapp-btn">
+            WhatsApp аркылуу жазуу
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <div class="contact-info">
+
+        <p class="small-title">CONTACT US</p>
+
+        <h2>Биз менен байланышыңыз</h2>
+
+        <p>
+            Суроолоруңуз болсо, бизге WhatsApp аркылуу
+            же телефон менен кайрылыңыз.
+        </p>
+
+        <div class="contact-item">
+            📞 <strong>+996 700 000 000</strong>
+        </div>
+
+        <div class="contact-item">
+            💬 <strong>WhatsApp: +996 700 000 000</strong>
+        </div>
+
+        <div class="contact-item">
+            📍 Бишкек шаары, Кыргызстан
+        </div>
+
+        <a href="https://wa.me/996700000000"
+           target="_blank"
+           class="main-btn">
+            WhatsApp ачуу
+        </a>
+
+    </div>
+
+
+    <div class="map">
+        <iframe
+            src="https://www.google.com/maps?q=Bishkek,Kyrgyzstan&output=embed"
+            loading="lazy">
+        </iframe>
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-logo">
+        Chanel <span>№5</span>
+    </div>
+
+    <p>
+        Premium perfume boutique
+    </p>
+
+    <div class="socials">
+        Instagram &nbsp; | &nbsp; WhatsApp &nbsp; | &nbsp; Telegram
+    </div>
+
+    <p class="copyright">
+        © 2026 Chanel №5. Бардык укуктар корголгон.
+    </p>
+
+</footer>
+
+
+<!-- CART MODAL -->
+
+<div class="cart-modal" id="cartModal">
+
+    <div class="cart-window">
+
+        <button class="close-cart" onclick="closeCart()">×</button>
+
+        <h2>Сиздин себетиңиз</h2>
+
+        <div id="cartItems"></div>
+
+        <div class="cart-total">
+            Жалпы: <strong id="cartTotal">0</strong> сом
+        </div>
+
+        <button class="checkout" onclick="checkout()">
+            Заказ берүү
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+let cart = [];
+
+function addToCart(name, price) {
+
+    cart.push({
+        name: name,
+        price: price
+    });
+
+    document.getElementById("cartCount").innerText = cart.length;
+
+    alert(name + " себетке кошулду!");
+}
+
+
+function openCart() {
+
+    document.getElementById("cartModal").style.display = "flex";
+
+    renderCart();
+}
+
+
+function closeCart() {
+
+    document.getElementById("cartModal").style.display = "none";
+}
+
+
+function renderCart() {
+
+    const container = document.getElementById("cartItems");
+
+    container.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+
+        total += item.price;
+
+        container.innerHTML += `
+            <div class="cart-item">
+                <div>
+                    <strong>${item.name}</strong>
+                    <p>${item.price.toLocaleString()} сом</p>
+                </div>
+
+                <button onclick="removeItem(${index})">
+                    Өчүрүү
+                </button>
+            </div>
+        `;
+    });
+
+    document.getElementById("cartTotal").innerText =
+        total.toLocaleString();
+}
+
+
+function removeItem(index) {
+
+    cart.splice(index, 1);
+
+    document.getElementById("cartCount").innerText = cart.length;
+
+    renderCart();
+}
+
+
+function checkout() {
+
+    if (cart.length === 0) {
+
+        alert("Себет бош!");
+
+        return;
+    }
+
+    alert(
+        "Заказыңыз кабыл алынды! " +
+        "Консультант жакын арада сиз менен байланышат."
+    );
+}
+
+
+function filterProducts(category) {
+
+    const products =
+        document.querySelectorAll(".product-card");
+
+    products.forEach(product => {
+
+        if (product.dataset.category === category) {
+
+            product.style.display = "block";
+
+        } else {
+
+            product.style.display = "none";
+
+        }
+
+    });
+
+    document.getElementById("catalog")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+}
+
+
+function showAll() {
+
+    const products =
+        document.querySelectorAll(".product-card");
+
+    products.forEach(product => {
+
+        product.style.display = "block";
+
+    });
+}
+
+
+function searchProducts() {
+
+    const search =
+        document.getElementById("search")
+        .value
+        .toLowerCase();
+
+    const products =
+        document.querySelectorAll(".product-card");
+
+    products.forEach(product => {
+
+        const name =
+            product.dataset.name.toLowerCase();
+
+        if (name.includes(search)) {
+
+            product.style.display = "block";
+
+        } else {
+
+            product.style.display = "none";
+
+        }
+
+    });
+}
+
+</script>
+
+</body>
+</html>
