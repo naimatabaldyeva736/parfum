@@ -72,7 +72,55 @@ nav a:hover {
     padding: 3px 7px;
     margin-left: 5px;
 }
+.search-box {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    max-width: 650px;
+}
 
+.search-input-wrapper {
+    position: relative;
+    flex-grow: 1;
+}
+
+.search-input-wrapper i {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray);
+}
+
+.search-input-wrapper input {
+    width: 100%;
+    padding: 15px 20px 15px 50px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    transition: var(--transition);
+}
+
+.search-input-wrapper input:focus {
+    border-color: var(--gold);
+}
+
+.search-btn {
+    padding: 0 30px;
+    white-space: nowrap;
+}
+
+@media (max-width: 576px) {
+    .search-box {
+        flex-direction: column;
+    }
+    .search-btn {
+        width: 100%;
+        padding: 12px;
+    }
+}
 
 /* HERO */
 
